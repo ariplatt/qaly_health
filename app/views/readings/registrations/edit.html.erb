@@ -8,7 +8,7 @@
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
         <!-- Form html options start -->
-        <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
+        <% form_html_options = { method: :put, novalidate: true, class: "mb-3", multipart: true } %>
         <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
@@ -275,11 +275,11 @@
 
             <%= f.label :self_image %>
 
-            <%= f.text_field :self_image, :class => self_image_class, :placeholder => "Enter self image" %>
+            <%= f.file_field :self_image, :class => self_image_class %>
 
             <% if self_image_was_invalid %>
               <% resource.errors.full_messages_for(:self_image).each do |message| %>
-                <div class="invalid-feedback d-flex">
+                <div class="invalid-feedback">
                   <%= message %>
                 </div>
               <% end %>

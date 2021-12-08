@@ -1,4 +1,6 @@
 class Reading < ApplicationRecord
+  mount_uploader :self_image, SelfImageUploader
+
   # Direct associations
 
   belongs_to :physician

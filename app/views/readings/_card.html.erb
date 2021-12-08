@@ -27,7 +27,9 @@
 
       <dt>Self image</dt>
       <!-- Display self_image start -->
-      <dd><%= reading.self_image %></dd>
+      <dd>
+        <%= cl_image_tag @reading.self_image, class: "img-fluid" %>
+      </dd>
       <!-- Display self_image end -->
 
       <dt>User name</dt>
