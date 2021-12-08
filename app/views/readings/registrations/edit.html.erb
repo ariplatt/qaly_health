@@ -1,0 +1,412 @@
+<div class="row">
+  <div class="offset-md-3 col-md-6">
+    <div class="card mb-3">
+      <h5 class="card-header">
+        Edit <%= resource_name.to_s.titleize %>
+      </h5>
+
+      <div class="card-body">
+        <% was_validated = resource.errors.any? %>
+        <!-- Form html options start -->
+        <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
+        <!-- Form html options end -->
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
+
+          <% if flash[:notice].present? %>
+            <div class="alert alert-info" role="alert">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+
+          <% if flash[:alert].present? %>
+            <div class="alert alert-danger" role="alert">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <% email_was_invalid = resource.errors.include?(:email) %>
+
+            <% email_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if email_was_invalid %>
+                <% email_class << " is-invalid" %>
+              <% else %>
+                <% email_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :email %>
+
+            <%= f.email_field :email, autofocus: true, class: email_class %>
+
+            <% if email_was_invalid %>
+              <% resource.errors.full_messages_for(:email).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <small class="form-text text-muted">
+                Currently awaiting confirmation for <%= resource.unconfirmed_email %>.
+              </small>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <% password_was_invalid = resource.errors.include?(:password) %>
+
+            <% password_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if password_was_invalid %>
+                <% password_class << " is-invalid" %>
+              <% else %>
+                <% password_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :password %>
+
+            <%= f.password_field :password, class: password_class, autocomplete: "off" %>
+
+            <% if password_was_invalid %>
+              <% resource.errors.full_messages_for(:password).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+
+            <small class="form-text text-muted">
+              Leave blank if you don't want to change it.
+
+              <% if @minimum_password_length %>
+                <%= @minimum_password_length %> characters minimum.
+              <% end %>
+            </small>
+          </div>
+
+          <div class="form-group">
+            <% password_confirmation_was_invalid = resource.errors.include?(:password_confirmation) %>
+
+            <% password_confirmation_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if password_confirmation_was_invalid %>
+                <% password_confirmation_class << " is-invalid" %>
+              <% else %>
+                <% password_confirmation_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :password_confirmation %>
+
+            <%= f.password_field :password_confirmation, class: password_confirmation_class, autocomplete: "off" %>
+
+            <% if password_confirmation_was_invalid %>
+              <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <% current_password_was_invalid = resource.errors.include?(:current_password) %>
+
+            <% current_password_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if current_password_was_invalid %>
+                <% current_password_class << " is-invalid" %>
+              <% else %>
+                <% current_password_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :current_password %>
+
+            <%= f.password_field :current_password, class: current_password_class, autocomplete: "off" %>
+
+            <% if current_password_was_invalid %>
+              <% resource.errors.full_messages_for(:current_password).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+
+            <small class="form-text text-muted">
+              We need your current password to confirm your changes.
+            </small>
+          </div>
+
+
+          <!-- Devise Input for brain_oxygen_level start -->
+          <div class="form-group">
+            <% brain_oxygen_level_was_invalid = resource.errors.include?(:brain_oxygen_level) %>
+
+            <% brain_oxygen_level_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if brain_oxygen_level_was_invalid %>
+                <% brain_oxygen_level_class << " is-invalid" %>
+              <% else %>
+                <% brain_oxygen_level_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :brain_oxygen_level %>
+
+            <%= f.number_field :brain_oxygen_level, :class => brain_oxygen_level_class, :placeholder => "Enter brain oxygen level" %>
+
+            <% if brain_oxygen_level_was_invalid %>
+              <% resource.errors.full_messages_for(:brain_oxygen_level).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for brain_oxygen_level end -->
+
+          <!-- Devise Input for time start -->
+          <div class="form-group">
+            <% time_was_invalid = resource.errors.include?(:time) %>
+
+            <% time_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if time_was_invalid %>
+                <% time_class << " is-invalid" %>
+              <% else %>
+                <% time_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :time %>
+
+            <%= f.time_select :time, class: "#{time_class} col-sm-2" %>
+
+            <% if time_was_invalid %>
+              <% resource.errors.full_messages_for(:time).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for time end -->
+
+          <!-- Devise Input for date start -->
+          <div class="form-group">
+            <% date_was_invalid = resource.errors.include?(:date) %>
+
+            <% date_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if date_was_invalid %>
+                <% date_class << " is-invalid" %>
+              <% else %>
+                <% date_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :date %>
+
+            <%= f.date_select :date, class: "#{date_class} col-sm-2" %>
+
+            <% if date_was_invalid %>
+              <% resource.errors.full_messages_for(:date).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for date end -->
+
+          <!-- Devise Input for feeling start -->
+          <div class="form-group">
+            <% feeling_was_invalid = resource.errors.include?(:feeling) %>
+
+            <% feeling_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if feeling_was_invalid %>
+                <% feeling_class << " is-invalid" %>
+              <% else %>
+                <% feeling_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :feeling %>
+
+            <%= f.text_area :feeling, :class => feeling_class, :placeholder => "Enter feeling" %>
+
+            <% if feeling_was_invalid %>
+              <% resource.errors.full_messages_for(:feeling).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for feeling end -->
+
+          <!-- Devise Input for self_image start -->
+          <div class="form-group">
+            <% self_image_was_invalid = resource.errors.include?(:self_image) %>
+
+            <% self_image_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if self_image_was_invalid %>
+                <% self_image_class << " is-invalid" %>
+              <% else %>
+                <% self_image_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :self_image %>
+
+            <%= f.text_field :self_image, :class => self_image_class, :placeholder => "Enter self image" %>
+
+            <% if self_image_was_invalid %>
+              <% resource.errors.full_messages_for(:self_image).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for self_image end -->
+
+          <!-- Devise Input for user_name start -->
+          <div class="form-group">
+            <% user_name_was_invalid = resource.errors.include?(:user_name) %>
+
+            <% user_name_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if user_name_was_invalid %>
+                <% user_name_class << " is-invalid" %>
+              <% else %>
+                <% user_name_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :user_name %>
+
+            <%= f.text_field :user_name, :class => user_name_class, :placeholder => "Enter user name" %>
+
+            <% if user_name_was_invalid %>
+              <% resource.errors.full_messages_for(:user_name).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for user_name end -->
+
+          <!-- Devise Input for brain_pressure_level start -->
+          <div class="form-group">
+            <% brain_pressure_level_was_invalid = resource.errors.include?(:brain_pressure_level) %>
+
+            <% brain_pressure_level_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if brain_pressure_level_was_invalid %>
+                <% brain_pressure_level_class << " is-invalid" %>
+              <% else %>
+                <% brain_pressure_level_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :brain_pressure_level %>
+
+            <%= f.text_field :brain_pressure_level, :class => brain_pressure_level_class, :placeholder => "Enter brain pressure level" %>
+
+            <% if brain_pressure_level_was_invalid %>
+              <% resource.errors.full_messages_for(:brain_pressure_level).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for brain_pressure_level end -->
+
+          <!-- Devise Input for brain_temperature_level start -->
+          <div class="form-group">
+            <% brain_temperature_level_was_invalid = resource.errors.include?(:brain_temperature_level) %>
+
+            <% brain_temperature_level_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if brain_temperature_level_was_invalid %>
+                <% brain_temperature_level_class << " is-invalid" %>
+              <% else %>
+                <% brain_temperature_level_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :brain_temperature_level %>
+
+            <%= f.text_field :brain_temperature_level, :class => brain_temperature_level_class, :placeholder => "Enter brain temperature level" %>
+
+            <% if brain_temperature_level_was_invalid %>
+              <% resource.errors.full_messages_for(:brain_temperature_level).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for brain_temperature_level end -->
+
+          <!-- Devise Input for physician_id start -->
+          <div class="form-group">
+            <% physician_id_was_invalid = resource.errors.include?(:physician_id) %>
+
+            <% physician_id_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if physician_id_was_invalid %>
+                <% physician_id_class << " is-invalid" %>
+              <% else %>
+                <% physician_id_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :physician_id %>
+
+            <%= f.number_field :physician_id, :class => physician_id_class, :placeholder => "Enter physician id" %>
+
+            <% if physician_id_was_invalid %>
+              <% resource.errors.full_messages_for(:physician_id).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for physician_id end -->
+          <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
+        <% end %>
+
+        <%= link_to "Back", :back, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="card-footer">
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "btn btn-block btn-link", method: :delete %>
+      </div>
+    </div>
+  </div>
+</div>
