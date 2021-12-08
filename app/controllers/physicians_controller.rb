@@ -8,6 +8,7 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians/1
   def show
+    @reading = Reading.new
   end
 
   # GET /physicians/new
@@ -24,7 +25,12 @@ class PhysiciansController < ApplicationController
     @physician = Physician.new(physician_params)
 
     if @physician.save
-      redirect_to @physician, notice: 'Physician was successfully created.'
+      message = 'Physician was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @physician, notice: message
+      end
     else
       render :new
     end

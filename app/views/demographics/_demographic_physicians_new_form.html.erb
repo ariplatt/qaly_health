@@ -1,0 +1,72 @@
+<!-- Form physician start -->
+<%= form_with(model: @physician, local: true) do |f| %>
+<!-- Form physician end -->
+
+  <!-- Label and input for email start -->
+  <div class="form-group">
+    <%= f.label :email %>
+
+    <!-- Input for email start -->
+    <%= f.text_field :email, class: "form-control" %>
+    <!-- Input for email end -->
+  </div>
+  <!-- Label and input for email end -->
+
+  <!-- Label and input for password start -->
+  <div class="form-group">
+    <%= f.label :password %>
+
+    <!-- Input for password start -->
+    <%= f.text_field :password, class: "form-control" %>
+    <!-- Input for password end -->
+  </div>
+  <!-- Label and input for password end -->
+
+  <!-- Label and input for user_name start -->
+  <div class="form-group">
+    <%= f.label :user_name %>
+
+    <!-- Input for user_name start -->
+    <%= f.text_field :user_name, class: "form-control" %>
+    <!-- Input for user_name end -->
+  </div>
+  <!-- Label and input for user_name end -->
+
+  <!-- Label and input for patient start -->
+  <div class="form-group">
+    <%= f.label :patient %>
+
+    <!-- Input for patient start -->
+    <%= f.text_field :patient, class: "form-control" %>
+    <!-- Input for patient end -->
+  </div>
+  <!-- Label and input for patient end -->
+
+  <!-- Label and input for patient_id start -->
+  <!-- Input for patient_id start -->
+  <%= f.hidden_field :patient_id, value: @demographic.id %>
+  <!-- Input for patient_id end -->
+  <!-- Label and input for patient_id end -->
+
+  <!-- Label and input for hospital_id start -->
+  <div class="form-group">
+    <%= f.label :hospital_id %>
+
+    <!-- Input for hospital_id start -->
+    <%= f.text_field :hospital_id, class: "form-control" %>
+    <!-- Input for hospital_id end -->
+  </div>
+  <!-- Label and input for hospital_id end -->
+
+  <!-- Label and input for hospital_name start -->
+  <div class="form-group">
+    <%= f.label :hospital_name %>
+
+    <!-- Input for hospital_name start -->
+    <%= f.text_field :hospital_name, class: "form-control" %>
+    <!-- Input for hospital_name end -->
+  </div>
+  <!-- Label and input for hospital_name end -->
+
+  <%= f.submit "Create physician", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

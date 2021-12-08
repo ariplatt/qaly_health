@@ -8,6 +8,7 @@ class DemographicsController < ApplicationController
 
   # GET /demographics/1
   def show
+    @physician = Physician.new
   end
 
   # GET /demographics/new
@@ -24,7 +25,12 @@ class DemographicsController < ApplicationController
     @demographic = Demographic.new(demographic_params)
 
     if @demographic.save
-      redirect_to @demographic, notice: 'Demographic was successfully created.'
+      message = 'Demographic was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @demographic, notice: message
+      end
     else
       render :new
     end

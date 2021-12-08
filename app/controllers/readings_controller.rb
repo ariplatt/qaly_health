@@ -24,7 +24,12 @@ class ReadingsController < ApplicationController
     @reading = Reading.new(reading_params)
 
     if @reading.save
-      redirect_to @reading, notice: 'Reading was successfully created.'
+      message = 'Reading was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @reading, notice: message
+      end
     else
       render :new
     end
