@@ -16,6 +16,10 @@ class ReadingResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :patient,
+             resource: UserResource,
+             foreign_key: :brain_oxygen_level
+
   # Indirect associations
 
 end
