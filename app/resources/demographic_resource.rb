@@ -13,6 +13,10 @@ class DemographicResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :patient,
+             resource: UserResource,
+             foreign_key: :disease_id
+
   # Indirect associations
 
 end
