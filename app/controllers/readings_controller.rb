@@ -1,4 +1,6 @@
 class ReadingsController < ApplicationController
+  before_action :current_user_must_be_reading_patient, only: [:edit, :update, :destroy] 
+
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
 
   # GET /readings
@@ -57,6 +59,14 @@ class ReadingsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_reading_patient
+    set_reading
+    unless current_user == @reading.patient
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reading
       @reading = Reading.find(params[:id])

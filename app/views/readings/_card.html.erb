@@ -61,16 +61,20 @@
 
       <!-- Edit link reading start -->
       <div class="col">
-        <%= link_to edit_reading_url(reading), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @reading.patient %>
+          <%= link_to edit_reading_url(reading), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link reading end -->
 
       <!-- Delete link reading start -->
       <div class="col">
-        <%= link_to reading, method: :delete, data: { confirm: "Do you really want to delete this reading?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @reading.patient %>
+          <%= link_to reading, method: :delete, data: { confirm: "Do you really want to delete this reading?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link reading end -->
