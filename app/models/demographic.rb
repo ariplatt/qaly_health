@@ -1,6 +1,9 @@
 class Demographic < ApplicationRecord
   # Direct associations
 
+  has_many   :physicians,
+             :foreign_key => "patient_id"
+
   belongs_to :patient,
              :class_name => "User",
              :foreign_key => "disease_id"

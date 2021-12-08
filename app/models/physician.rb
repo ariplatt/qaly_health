@@ -1,6 +1,10 @@
 class Physician < ApplicationRecord
   # Direct associations
 
+  belongs_to :patients,
+             :class_name => "Demographic",
+             :foreign_key => "patient_id"
+
   has_many   :readings,
              :dependent => :destroy
 

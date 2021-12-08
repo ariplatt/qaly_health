@@ -4,6 +4,8 @@ RSpec.describe Demographic, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:physicians) }
+
     it { should belong_to(:patient) }
 
     end

@@ -4,6 +4,8 @@ RSpec.describe Physician, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:patients) }
+
     it { should have_many(:readings) }
 
     end
