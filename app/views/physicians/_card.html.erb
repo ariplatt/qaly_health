@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Physician #<%= physician.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User name</dt>
+      <!-- Display user_name start -->
+      <dd><%= physician.user_name %></dd>
+      <!-- Display user_name end -->
+
+      <dt>Patient</dt>
+      <!-- Display patient start -->
+      <dd><%= physician.patient %></dd>
+      <!-- Display patient end -->
+
+      <dt>Patient</dt>
+      <!-- Display patient_id start -->
+      <dd><%= physician.patient_id %></dd>
+      <!-- Display patient_id end -->
+
+      <dt>Hospital</dt>
+      <!-- Display hospital_id start -->
+      <dd><%= physician.hospital_id %></dd>
+      <!-- Display hospital_id end -->
+
+      <dt>Hospital name</dt>
+      <!-- Display hospital_name start -->
+      <dd><%= physician.hospital_name %></dd>
+      <!-- Display hospital_name end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back physician, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link physician start -->
+      <div class="col">
+        <%= link_to edit_physician_url(physician), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link physician end -->
+
+      <!-- Delete link physician start -->
+      <div class="col">
+        <%= link_to physician, method: :delete, data: { confirm: "Do you really want to delete this physician?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link physician end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(physician.updated_at) %> ago
+  </div>
+</div>

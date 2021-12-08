@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :physicians
+  resources :physicians
   devise_for :readings
   resources :readings
   devise_for :users
