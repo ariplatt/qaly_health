@@ -68,7 +68,7 @@
 
     <%= f.label :patient_id %>
     <!-- Input for patient_id start -->
-    <%= f.number_field :patient_id, class: patient_class, placeholder: "Enter patient" %>
+    <%= f.collection_select :patient_id, Demographic.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for patient_id end -->
     <% if patient_was_invalid %>
       <% physician.errors.full_messages_for(:patient).each do |message| %>
