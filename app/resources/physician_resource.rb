@@ -12,6 +12,10 @@ class PhysicianResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :patients,
+             resource: DemographicResource,
+             foreign_key: :patient_id
+
   has_many   :readings
 
   # Indirect associations

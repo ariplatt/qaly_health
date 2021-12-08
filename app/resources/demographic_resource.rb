@@ -13,6 +13,9 @@ class DemographicResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :physicians,
+             foreign_key: :patient_id
+
   belongs_to :patient,
              resource: UserResource,
              foreign_key: :disease_id
