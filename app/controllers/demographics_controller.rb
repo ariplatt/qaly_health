@@ -3,7 +3,7 @@ class DemographicsController < ApplicationController
 
   # GET /demographics
   def index
-    @demographics = Demographic.all
+    @demographics = Demographic.page(params[:page]).per(10)
   end
 
   # GET /demographics/1

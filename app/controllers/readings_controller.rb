@@ -5,7 +5,7 @@ class ReadingsController < ApplicationController
 
   # GET /readings
   def index
-    @readings = Reading.all
+    @readings = Reading.page(params[:page]).per(10)
   end
 
   # GET /readings/1

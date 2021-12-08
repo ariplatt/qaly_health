@@ -3,7 +3,7 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians
   def index
-    @physicians = Physician.all
+    @physicians = Physician.page(params[:page]).per(10)
   end
 
   # GET /physicians/1
