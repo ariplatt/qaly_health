@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <% if flash[:notice].present? %>
@@ -147,7 +145,6 @@
           </div>
 
 
-          <!-- Devise Input for user_name start -->
           <div class="form-group">
             <% user_name_was_invalid = resource.errors.include?(:user_name) %>
 
@@ -173,9 +170,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for user_name end -->
 
-          <!-- Devise Input for patient start -->
           <div class="form-group">
             <% patient_was_invalid = resource.errors.include?(:patient) %>
 
@@ -201,9 +196,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for patient end -->
 
-          <!-- Devise Input for patient_id start -->
           <div class="form-group">
             <% patient_id_was_invalid = resource.errors.include?(:patient_id) %>
 
@@ -229,9 +222,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for patient_id end -->
 
-          <!-- Devise Input for hospital_id start -->
           <div class="form-group">
             <% hospital_id_was_invalid = resource.errors.include?(:hospital_id) %>
 
@@ -257,9 +248,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for hospital_id end -->
 
-          <!-- Devise Input for hospital_name start -->
           <div class="form-group">
             <% hospital_name_was_invalid = resource.errors.include?(:hospital_name) %>
 
@@ -285,7 +274,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for hospital_name end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

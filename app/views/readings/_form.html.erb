@@ -1,12 +1,7 @@
 <% was_validated = reading.errors.any? %>
 
 <%= form_with(model: reading, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for brain_oxygen_level start -->
-  <!-- Input for "brain_oxygen_level" start -->
   <%= f.hidden_field :brain_oxygen_level, value: current_user.id %>
-  <!-- Input for "brain_oxygen_level" end -->
-  <!-- Label and input for brain_oxygen_level end -->
-  <!-- Label and input for time start -->
   <div class="form-group">
     <% time_class = "form-control" %>
     <% time_was_invalid = reading.errors.include?(:time) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :time %>
-    <!-- Input for time start -->
     <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
-    <!-- Input for time end -->
     <% if time_was_invalid %>
       <% reading.errors.full_messages_for(:time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = reading.errors.include?(:date) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% reading.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for feeling start -->
   <div class="form-group">
     <% feeling_class = "form-control" %>
     <% feeling_was_invalid = reading.errors.include?(:feeling) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :feeling %>
-    <!-- Input for feeling start -->
     <%= f.text_area :feeling, class: feeling_class, placeholder: "Enter feeling" %>
-    <!-- Input for feeling end -->
     <% if feeling_was_invalid %>
       <% reading.errors.full_messages_for(:feeling).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for feeling end -->
-  <!-- Label and input for self_image start -->
   <div class="form-group">
     <% self_image_class = "form-control" %>
     <% self_image_was_invalid = reading.errors.include?(:self_image) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :self_image %>
-    <!-- Input for self_image start -->
     <%= f.text_field :self_image, class: self_image_class, placeholder: "Enter self image" %>
-    <!-- Input for self_image end -->
     <% if self_image_was_invalid %>
       <% reading.errors.full_messages_for(:self_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for self_image end -->
-  <!-- Label and input for user_name start -->
   <div class="form-group">
     <% user_name_class = "form-control" %>
     <% user_name_was_invalid = reading.errors.include?(:user_name) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :user_name %>
-    <!-- Input for user_name start -->
     <%= f.text_field :user_name, class: user_name_class, placeholder: "Enter user name" %>
-    <!-- Input for user_name end -->
     <% if user_name_was_invalid %>
       <% reading.errors.full_messages_for(:user_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_name end -->
-  <!-- Label and input for brain_pressure_level start -->
   <div class="form-group">
     <% brain_pressure_level_class = "form-control" %>
     <% brain_pressure_level_was_invalid = reading.errors.include?(:brain_pressure_level) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :brain_pressure_level %>
-    <!-- Input for brain_pressure_level start -->
     <%= f.text_field :brain_pressure_level, class: brain_pressure_level_class, placeholder: "Enter brain pressure level" %>
-    <!-- Input for brain_pressure_level end -->
     <% if brain_pressure_level_was_invalid %>
       <% reading.errors.full_messages_for(:brain_pressure_level).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,8 +134,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for brain_pressure_level end -->
-  <!-- Label and input for brain_temperature_level start -->
   <div class="form-group">
     <% brain_temperature_level_class = "form-control" %>
     <% brain_temperature_level_was_invalid = reading.errors.include?(:brain_temperature_level) %>
@@ -176,9 +147,7 @@
     <% end %>
 
     <%= f.label :brain_temperature_level %>
-    <!-- Input for brain_temperature_level start -->
     <%= f.text_field :brain_temperature_level, class: brain_temperature_level_class, placeholder: "Enter brain temperature level" %>
-    <!-- Input for brain_temperature_level end -->
     <% if brain_temperature_level_was_invalid %>
       <% reading.errors.full_messages_for(:brain_temperature_level).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -187,8 +156,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for brain_temperature_level end -->
-  <!-- Label and input for physician_id start -->
   <div class="form-group">
     <% physician_class = "form-control" %>
     <% physician_was_invalid = reading.errors.include?(:physician) %>
@@ -202,9 +169,7 @@
     <% end %>
 
     <%= f.label :physician_id %>
-    <!-- Input for physician_id start -->
     <%= f.collection_select :physician_id, Physician.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for physician_id end -->
     <% if physician_was_invalid %>
       <% reading.errors.full_messages_for(:physician).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -213,6 +178,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for physician_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

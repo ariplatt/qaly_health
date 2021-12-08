@@ -1,111 +1,65 @@
-<!-- Form reading start -->
 <%= form_with(model: @reading, local: true) do |f| %>
-<!-- Form reading end -->
 
-  <!-- Label and input for brain_oxygen_level start -->
-  <!-- Input for brain_oxygen_level start -->
   <%= f.hidden_field :brain_oxygen_level, value: @user.id %>
-  <!-- Input for brain_oxygen_level end -->
-  <!-- Label and input for brain_oxygen_level end -->
 
-  <!-- Label and input for time start -->
   <div class="form-group">
     <%= f.label :time %>
 
-    <!-- Input for time start -->
     <%= f.date_select :time, class: "form-control" %>
-    <!-- Input for time end -->
   </div>
-  <!-- Label and input for time end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for feeling start -->
   <div class="form-group">
     <%= f.label :feeling %>
-    <!-- Input for feeling start -->
     <%= f.text_area :feeling, rows: "3", class: "form-control" %>
-    <!-- Input for feeling end -->
   </div>
-  <!-- Label and input for feeling end -->
 
-  <!-- Label and input for self_image start -->
   <div class="form-group">
     <%= f.label :self_image %>
 
-    <!-- Input for self_image start -->
     <%= f.text_field :self_image, class: "form-control" %>
-    <!-- Input for self_image end -->
   </div>
-  <!-- Label and input for self_image end -->
 
-  <!-- Label and input for user_name start -->
   <div class="form-group">
     <%= f.label :user_name %>
 
-    <!-- Input for user_name start -->
     <%= f.text_field :user_name, class: "form-control" %>
-    <!-- Input for user_name end -->
   </div>
-  <!-- Label and input for user_name end -->
 
-  <!-- Label and input for email start -->
   <div class="form-group">
     <%= f.label :email %>
 
-    <!-- Input for email start -->
     <%= f.text_field :email, class: "form-control" %>
-    <!-- Input for email end -->
   </div>
-  <!-- Label and input for email end -->
 
-  <!-- Label and input for password start -->
   <div class="form-group">
     <%= f.label :password %>
 
-    <!-- Input for password start -->
     <%= f.text_field :password, class: "form-control" %>
-    <!-- Input for password end -->
   </div>
-  <!-- Label and input for password end -->
 
-  <!-- Label and input for brain_pressure_level start -->
   <div class="form-group">
     <%= f.label :brain_pressure_level %>
 
-    <!-- Input for brain_pressure_level start -->
     <%= f.text_field :brain_pressure_level, class: "form-control" %>
-    <!-- Input for brain_pressure_level end -->
   </div>
-  <!-- Label and input for brain_pressure_level end -->
 
-  <!-- Label and input for brain_temperature_level start -->
   <div class="form-group">
     <%= f.label :brain_temperature_level %>
 
-    <!-- Input for brain_temperature_level start -->
     <%= f.text_field :brain_temperature_level, class: "form-control" %>
-    <!-- Input for brain_temperature_level end -->
   </div>
-  <!-- Label and input for brain_temperature_level end -->
 
-  <!-- Label and input for physician_id start -->
   <div class="form-group">
     <%= f.label :physician_id %>
 
-    <!-- Input for physician_id start -->
     <%= f.collection_select :physician_id, Physician.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for physician_id end -->
   </div>
-  <!-- Label and input for physician_id end -->
 
   <%= f.submit "Create reading", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { method: :put, novalidate: true, class: "mb-3", multipart: true } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <% if flash[:notice].present? %>
@@ -147,7 +145,6 @@
           </div>
 
 
-          <!-- Devise Input for brain_oxygen_level start -->
           <div class="form-group">
             <% brain_oxygen_level_was_invalid = resource.errors.include?(:brain_oxygen_level) %>
 
@@ -173,9 +170,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for brain_oxygen_level end -->
 
-          <!-- Devise Input for time start -->
           <div class="form-group">
             <% time_was_invalid = resource.errors.include?(:time) %>
 
@@ -201,9 +196,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for time end -->
 
-          <!-- Devise Input for date start -->
           <div class="form-group">
             <% date_was_invalid = resource.errors.include?(:date) %>
 
@@ -229,9 +222,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for date end -->
 
-          <!-- Devise Input for feeling start -->
           <div class="form-group">
             <% feeling_was_invalid = resource.errors.include?(:feeling) %>
 
@@ -257,9 +248,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for feeling end -->
 
-          <!-- Devise Input for self_image start -->
           <div class="form-group">
             <% self_image_was_invalid = resource.errors.include?(:self_image) %>
 
@@ -285,9 +274,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for self_image end -->
 
-          <!-- Devise Input for user_name start -->
           <div class="form-group">
             <% user_name_was_invalid = resource.errors.include?(:user_name) %>
 
@@ -313,9 +300,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for user_name end -->
 
-          <!-- Devise Input for brain_pressure_level start -->
           <div class="form-group">
             <% brain_pressure_level_was_invalid = resource.errors.include?(:brain_pressure_level) %>
 
@@ -341,9 +326,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for brain_pressure_level end -->
 
-          <!-- Devise Input for brain_temperature_level start -->
           <div class="form-group">
             <% brain_temperature_level_was_invalid = resource.errors.include?(:brain_temperature_level) %>
 
@@ -369,9 +352,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for brain_temperature_level end -->
 
-          <!-- Devise Input for physician_id start -->
           <div class="form-group">
             <% physician_id_was_invalid = resource.errors.include?(:physician_id) %>
 
@@ -397,7 +378,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for physician_id end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

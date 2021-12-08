@@ -1,81 +1,47 @@
-<!-- Form demographic start -->
 <%= form_with(model: @demographic, local: true) do |f| %>
-<!-- Form demographic end -->
 
-  <!-- Label and input for email start -->
   <div class="form-group">
     <%= f.label :email %>
 
-    <!-- Input for email start -->
     <%= f.text_field :email, class: "form-control" %>
-    <!-- Input for email end -->
   </div>
-  <!-- Label and input for email end -->
 
-  <!-- Label and input for password start -->
   <div class="form-group">
     <%= f.label :password %>
 
-    <!-- Input for password start -->
     <%= f.text_field :password, class: "form-control" %>
-    <!-- Input for password end -->
   </div>
-  <!-- Label and input for password end -->
 
-  <!-- Label and input for user_name start -->
   <div class="form-group">
     <%= f.label :user_name %>
 
-    <!-- Input for user_name start -->
     <%= f.text_field :user_name, class: "form-control" %>
-    <!-- Input for user_name end -->
   </div>
-  <!-- Label and input for user_name end -->
 
-  <!-- Label and input for disease_name start -->
   <div class="form-group">
     <%= f.label :disease_name %>
 
-    <!-- Input for disease_name start -->
     <%= f.text_field :disease_name, class: "form-control" %>
-    <!-- Input for disease_name end -->
   </div>
-  <!-- Label and input for disease_name end -->
 
-  <!-- Label and input for disease_id start -->
-  <!-- Input for disease_id start -->
   <%= f.hidden_field :disease_id, value: @user.id %>
-  <!-- Input for disease_id end -->
-  <!-- Label and input for disease_id end -->
 
-  <!-- Label and input for date_diagnosed start -->
   <div class="form-group">
     <%= f.label :date_diagnosed %>
 
-    <!-- Input for date_diagnosed start -->
     <%= f.date_select :date_diagnosed, class: "form-control" %>
-    <!-- Input for date_diagnosed end -->
   </div>
-  <!-- Label and input for date_diagnosed end -->
 
-  <!-- Label and input for time_diagnosed start -->
   <div class="form-group">
     <%= f.label :time_diagnosed %>
 
-    <!-- Input for time_diagnosed start -->
     <%= f.date_select :time_diagnosed, class: "form-control" %>
-    <!-- Input for time_diagnosed end -->
   </div>
-  <!-- Label and input for time_diagnosed end -->
 
-  <!-- Label and input for description_of_illness start -->
   <div class="form-group">
     <%= f.label :description_of_illness %>
-    <!-- Input for description_of_illness start -->
     <%= f.text_area :description_of_illness, rows: "3", class: "form-control" %>
-    <!-- Input for description_of_illness end -->
   </div>
-  <!-- Label and input for description_of_illness end -->
 
   <%= f.submit "Create demographic", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

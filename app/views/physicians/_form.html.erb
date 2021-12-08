@@ -1,7 +1,6 @@
 <% was_validated = physician.errors.any? %>
 
 <%= form_with(model: physician, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_name start -->
   <div class="form-group">
     <% user_name_class = "form-control" %>
     <% user_name_was_invalid = physician.errors.include?(:user_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_name %>
-    <!-- Input for user_name start -->
     <%= f.text_field :user_name, class: user_name_class, placeholder: "Enter user name" %>
-    <!-- Input for user_name end -->
     <% if user_name_was_invalid %>
       <% physician.errors.full_messages_for(:user_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_name end -->
-  <!-- Label and input for patient start -->
   <div class="form-group">
     <% patient_class = "form-control" %>
     <% patient_was_invalid = physician.errors.include?(:patient) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :patient %>
-    <!-- Input for patient start -->
     <%= f.text_field :patient, class: patient_class, placeholder: "Enter patient" %>
-    <!-- Input for patient end -->
     <% if patient_was_invalid %>
       <% physician.errors.full_messages_for(:patient).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for patient end -->
-  <!-- Label and input for patient_id start -->
   <div class="form-group">
     <% patient_class = "form-control" %>
     <% patient_was_invalid = physician.errors.include?(:patient) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :patient_id %>
-    <!-- Input for patient_id start -->
     <%= f.collection_select :patient_id, Demographic.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for patient_id end -->
     <% if patient_was_invalid %>
       <% physician.errors.full_messages_for(:patient).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for patient_id end -->
-  <!-- Label and input for hospital_id start -->
   <div class="form-group">
     <% hospital_class = "form-control" %>
     <% hospital_was_invalid = physician.errors.include?(:hospital) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :hospital_id %>
-    <!-- Input for hospital_id start -->
     <%= f.number_field :hospital_id, class: hospital_class, placeholder: "Enter hospital" %>
-    <!-- Input for hospital_id end -->
     <% if hospital_was_invalid %>
       <% physician.errors.full_messages_for(:hospital).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hospital_id end -->
-  <!-- Label and input for hospital_name start -->
   <div class="form-group">
     <% hospital_name_class = "form-control" %>
     <% hospital_name_was_invalid = physician.errors.include?(:hospital_name) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :hospital_name %>
-    <!-- Input for hospital_name start -->
     <%= f.text_field :hospital_name, class: hospital_name_class, placeholder: "Enter hospital name" %>
-    <!-- Input for hospital_name end -->
     <% if hospital_name_was_invalid %>
       <% physician.errors.full_messages_for(:hospital_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hospital_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

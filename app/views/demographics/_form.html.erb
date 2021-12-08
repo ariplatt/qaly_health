@@ -1,7 +1,6 @@
 <% was_validated = demographic.errors.any? %>
 
 <%= form_with(model: demographic, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_name start -->
   <div class="form-group">
     <% user_name_class = "form-control" %>
     <% user_name_was_invalid = demographic.errors.include?(:user_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_name %>
-    <!-- Input for user_name start -->
     <%= f.text_field :user_name, class: user_name_class, placeholder: "Enter user name" %>
-    <!-- Input for user_name end -->
     <% if user_name_was_invalid %>
       <% demographic.errors.full_messages_for(:user_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_name end -->
-  <!-- Label and input for disease_name start -->
   <div class="form-group">
     <% disease_name_class = "form-control" %>
     <% disease_name_was_invalid = demographic.errors.include?(:disease_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :disease_name %>
-    <!-- Input for disease_name start -->
     <%= f.text_field :disease_name, class: disease_name_class, placeholder: "Enter disease name" %>
-    <!-- Input for disease_name end -->
     <% if disease_name_was_invalid %>
       <% demographic.errors.full_messages_for(:disease_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for disease_name end -->
-  <!-- Label and input for disease_id start -->
   <div class="form-group">
     <% disease_class = "form-control" %>
     <% disease_was_invalid = demographic.errors.include?(:disease) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :disease_id %>
-    <!-- Input for disease_id start -->
     <%= f.collection_select :disease_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for disease_id end -->
     <% if disease_was_invalid %>
       <% demographic.errors.full_messages_for(:disease).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for disease_id end -->
-  <!-- Label and input for date_diagnosed start -->
   <div class="form-group">
     <% date_diagnosed_class = "form-control" %>
     <% date_diagnosed_was_invalid = demographic.errors.include?(:date_diagnosed) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :date_diagnosed %>
-    <!-- Input for date_diagnosed start -->
     <%= f.date_select :date_diagnosed, class: date_diagnosed_class, placeholder: "Enter date diagnosed" %>
-    <!-- Input for date_diagnosed end -->
     <% if date_diagnosed_was_invalid %>
       <% demographic.errors.full_messages_for(:date_diagnosed).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date_diagnosed end -->
-  <!-- Label and input for time_diagnosed start -->
   <div class="form-group">
     <% time_diagnosed_class = "form-control" %>
     <% time_diagnosed_was_invalid = demographic.errors.include?(:time_diagnosed) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :time_diagnosed %>
-    <!-- Input for time_diagnosed start -->
     <%= f.time_select :time_diagnosed, class: time_diagnosed_class, placeholder: "Enter time diagnosed" %>
-    <!-- Input for time_diagnosed end -->
     <% if time_diagnosed_was_invalid %>
       <% demographic.errors.full_messages_for(:time_diagnosed).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time_diagnosed end -->
-  <!-- Label and input for description_of_illness start -->
   <div class="form-group">
     <% description_of_illness_class = "form-control" %>
     <% description_of_illness_was_invalid = demographic.errors.include?(:description_of_illness) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :description_of_illness %>
-    <!-- Input for description_of_illness start -->
     <%= f.text_area :description_of_illness, class: description_of_illness_class, placeholder: "Enter description of illness" %>
-    <!-- Input for description_of_illness end -->
     <% if description_of_illness_was_invalid %>
       <% demographic.errors.full_messages_for(:description_of_illness).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description_of_illness end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

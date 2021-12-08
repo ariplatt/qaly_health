@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <% if flash[:notice].present? %>
@@ -147,7 +145,6 @@
           </div>
 
 
-          <!-- Devise Input for user_name start -->
           <div class="form-group">
             <% user_name_was_invalid = resource.errors.include?(:user_name) %>
 
@@ -173,9 +170,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for user_name end -->
 
-          <!-- Devise Input for disease_name start -->
           <div class="form-group">
             <% disease_name_was_invalid = resource.errors.include?(:disease_name) %>
 
@@ -201,9 +196,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for disease_name end -->
 
-          <!-- Devise Input for disease_id start -->
           <div class="form-group">
             <% disease_id_was_invalid = resource.errors.include?(:disease_id) %>
 
@@ -229,9 +222,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for disease_id end -->
 
-          <!-- Devise Input for date_diagnosed start -->
           <div class="form-group">
             <% date_diagnosed_was_invalid = resource.errors.include?(:date_diagnosed) %>
 
@@ -257,9 +248,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for date_diagnosed end -->
 
-          <!-- Devise Input for time_diagnosed start -->
           <div class="form-group">
             <% time_diagnosed_was_invalid = resource.errors.include?(:time_diagnosed) %>
 
@@ -285,9 +274,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for time_diagnosed end -->
 
-          <!-- Devise Input for description_of_illness start -->
           <div class="form-group">
             <% description_of_illness_was_invalid = resource.errors.include?(:description_of_illness) %>
 
@@ -313,7 +300,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for description_of_illness end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

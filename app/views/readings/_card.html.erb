@@ -6,59 +6,41 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Brain oxygen level</dt>
-      <!-- Display brain_oxygen_level start -->
       <dd>
         <% if @reading.patient.present? %>
           <%= link_to reading.patient, reading.patient %>
         <% end %>
       </dd>
-      <!-- Display brain_oxygen_level end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= reading.time %></dd>
-      <!-- Display time end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= reading.date %></dd>
-      <!-- Display date end -->
 
       <dt>Feeling</dt>
-      <!-- Display feeling start -->
       <dd><%= reading.feeling %></dd>
-      <!-- Display feeling end -->
 
       <dt>Self image</dt>
-      <!-- Display self_image start -->
       <dd>
         <%= cl_image_tag @reading.self_image, class: "img-fluid" %>
       </dd>
-      <!-- Display self_image end -->
 
       <dt>User name</dt>
-      <!-- Display user_name start -->
       <dd><%= reading.user_name %></dd>
-      <!-- Display user_name end -->
 
       <dt>Brain pressure level</dt>
-      <!-- Display brain_pressure_level start -->
       <dd><%= reading.brain_pressure_level %></dd>
-      <!-- Display brain_pressure_level end -->
 
       <dt>Brain temperature level</dt>
-      <!-- Display brain_temperature_level start -->
       <dd><%= reading.brain_temperature_level %></dd>
-      <!-- Display brain_temperature_level end -->
 
       <dt>Physician</dt>
-      <!-- Display physician_id start -->
       <dd>
         <% if @reading.physician.present? %>
           <%= link_to reading.physician, reading.physician %>
         <% end %>
       </dd>
-      <!-- Display physician_id end -->
 
     </dl>
 
@@ -67,7 +49,6 @@
         <%= link_to_show_or_back reading, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link reading start -->
       <div class="col">
         <% if current_user == @reading.patient %>
           <%= link_to edit_reading_url(reading), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -75,9 +56,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link reading end -->
 
-      <!-- Delete link reading start -->
       <div class="col">
         <% if current_user == @reading.patient %>
           <%= link_to reading, method: :delete, data: { confirm: "Do you really want to delete this reading?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -85,7 +64,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link reading end -->
     </div>
   </div>
 
