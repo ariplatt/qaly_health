@@ -9,6 +9,10 @@ class Reading < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :demographic,
+             :through => :patient,
+             :source => :demographics
+
   # Validations
 
   # Scopes

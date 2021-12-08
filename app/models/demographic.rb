@@ -10,6 +10,10 @@ class Demographic < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :diagnosis,
+             :through => :patient,
+             :source => :brain_oxygens
+
   # Validations
 
   # Scopes

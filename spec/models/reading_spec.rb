@@ -12,6 +12,8 @@ RSpec.describe Reading, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:demographic) }
+
     end
 
     describe "Validations" do

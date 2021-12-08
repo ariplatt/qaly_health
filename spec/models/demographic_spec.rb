@@ -12,6 +12,8 @@ RSpec.describe Demographic, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:diagnosis) }
+
     end
 
     describe "Validations" do
