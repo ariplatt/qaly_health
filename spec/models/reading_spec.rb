@@ -4,6 +4,8 @@ RSpec.describe Reading, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:patient) }
+
     end
 
     describe "InDirect Associations" do

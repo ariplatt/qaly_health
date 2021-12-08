@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :brain_oxygens,
+             :class_name => "Reading",
+             :foreign_key => "brain_oxygen_level",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
