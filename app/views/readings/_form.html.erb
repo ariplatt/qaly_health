@@ -2,30 +2,9 @@
 
 <%= form_with(model: reading, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for brain_oxygen_level start -->
-  <div class="form-group">
-    <% brain_oxygen_level_class = "form-control" %>
-    <% brain_oxygen_level_was_invalid = reading.errors.include?(:brain_oxygen_level) %>
-
-    <% if was_validated %>
-      <% if brain_oxygen_level_was_invalid %>
-        <% brain_oxygen_level_class << " is-invalid" %>
-      <% else %>
-        <% brain_oxygen_level_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :brain_oxygen_level %>
-    <!-- Input for brain_oxygen_level start -->
-    <%= f.collection_select :brain_oxygen_level, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for brain_oxygen_level end -->
-    <% if brain_oxygen_level_was_invalid %>
-      <% reading.errors.full_messages_for(:brain_oxygen_level).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "brain_oxygen_level" start -->
+  <%= f.hidden_field :brain_oxygen_level, value: current_user.id %>
+  <!-- Input for "brain_oxygen_level" end -->
   <!-- Label and input for brain_oxygen_level end -->
   <!-- Label and input for time start -->
   <div class="form-group">

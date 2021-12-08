@@ -3,13 +3,9 @@
 <!-- Form reading end -->
 
   <!-- Label and input for brain_oxygen_level start -->
-  <div class="form-group">
-    <%= f.label :brain_oxygen_level %>
-
-    <!-- Input for brain_oxygen_level start -->
-    <%= f.collection_select :brain_oxygen_level, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for brain_oxygen_level end -->
-  </div>
+  <!-- Input for "brain_oxygen_level" start -->
+  <%= f.hidden_field :brain_oxygen_level, value: current_user.id %>
+  <!-- Input for "brain_oxygen_level" end -->
   <!-- Label and input for brain_oxygen_level end -->
 
   <!-- Label and input for time start -->
