@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "users#index"
   devise_for :demographics
   resources :demographics
   devise_for :physicians
