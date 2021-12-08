@@ -1,6 +1,9 @@
 class Physician < ApplicationRecord
   # Direct associations
 
+  has_many   :readings,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
