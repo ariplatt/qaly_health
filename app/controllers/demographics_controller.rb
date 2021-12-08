@@ -42,8 +42,14 @@ class DemographicsController < ApplicationController
   # DELETE /demographics/1
   def destroy
     @demographic.destroy
-    redirect_to demographics_url, notice: 'Demographic was successfully destroyed.'
+    message = "Demographic was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to demographics_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
