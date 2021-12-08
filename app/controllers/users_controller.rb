@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @demographic = Demographic.new
-    @reading = Reading.new
+    @demographics_info = DemographicsInfo.new
+    @reading_for_patient = ReadingForPatient.new
   end
 
   def new
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:user_name)
+    params.require(:user).permit(:user_name, :user_id)
   end
 end

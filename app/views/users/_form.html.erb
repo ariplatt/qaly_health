@@ -23,5 +23,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = user.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <% if user_was_invalid %>
+      <% user.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

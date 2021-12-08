@@ -5,15 +5,21 @@ class UserResource < ApplicationResource
   attribute :email, :string
   attribute :password, :string
   attribute :user_name, :string
+  attribute :user_id, :integer
 
   # Direct associations
 
-  has_many   :demographics,
-             foreign_key: :disease_id
+  has_many   :demographics_infos
 
-  has_many   :brain_oxygens,
-             resource: ReadingResource,
-             foreign_key: :brain_oxygen_level
+  has_many   :reading_for_patients
 
   # Indirect associations
+
+  has_many :physician_infos do
+    assign_each do |user, physician_infos|
+      physician_infos.select do |p|
+        p.id.in?(user.physician_infos.map(&:id))
+      end
+    end
+  end
 end

@@ -1,0 +1,159 @@
+<% was_validated = demographics_info.errors.any? %>
+
+<%= form_with(model: demographics_info, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% disease_class = "form-control" %>
+    <% disease_was_invalid = demographics_info.errors.include?(:disease) %>
+
+    <% if was_validated %>
+      <% if disease_was_invalid %>
+        <% disease_class << " is-invalid" %>
+      <% else %>
+        <% disease_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :disease_id %>
+    <%= f.number_field :disease_id, class: disease_class, placeholder: "Enter disease" %>
+    <% if disease_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:disease).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% disease_name_class = "form-control" %>
+    <% disease_name_was_invalid = demographics_info.errors.include?(:disease_name) %>
+
+    <% if was_validated %>
+      <% if disease_name_was_invalid %>
+        <% disease_name_class << " is-invalid" %>
+      <% else %>
+        <% disease_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :disease_name %>
+    <%= f.text_field :disease_name, class: disease_name_class, placeholder: "Enter disease name" %>
+    <% if disease_name_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:disease_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% weight_class = "form-control" %>
+    <% weight_was_invalid = demographics_info.errors.include?(:weight) %>
+
+    <% if was_validated %>
+      <% if weight_was_invalid %>
+        <% weight_class << " is-invalid" %>
+      <% else %>
+        <% weight_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :weight %>
+    <%= f.number_field :weight, class: weight_class, placeholder: "Enter weight" %>
+    <% if weight_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:weight).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% height_class = "form-control" %>
+    <% height_was_invalid = demographics_info.errors.include?(:height) %>
+
+    <% if was_validated %>
+      <% if height_was_invalid %>
+        <% height_class << " is-invalid" %>
+      <% else %>
+        <% height_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :height %>
+    <%= f.number_field :height, class: height_class, placeholder: "Enter height" %>
+    <% if height_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:height).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% dob_class = "form-control" %>
+    <% dob_was_invalid = demographics_info.errors.include?(:dob) %>
+
+    <% if was_validated %>
+      <% if dob_was_invalid %>
+        <% dob_class << " is-invalid" %>
+      <% else %>
+        <% dob_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :dob %>
+    <%= f.date_select :dob, class: dob_class, placeholder: "Enter dob" %>
+    <% if dob_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:dob).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = demographics_info.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
+    <% if user_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% user_name_class = "form-control" %>
+    <% user_name_was_invalid = demographics_info.errors.include?(:user_name) %>
+
+    <% if was_validated %>
+      <% if user_name_was_invalid %>
+        <% user_name_class << " is-invalid" %>
+      <% else %>
+        <% user_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name, class: user_name_class, placeholder: "Enter user name" %>
+    <% if user_name_was_invalid %>
+      <% demographics_info.errors.full_messages_for(:user_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

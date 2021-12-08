@@ -1,0 +1,57 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Demographics Info #<%= demographics_info.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Disease</dt>
+      <dd><%= demographics_info.disease_id %></dd>
+
+      <dt>Disease name</dt>
+      <dd><%= demographics_info.disease_name %></dd>
+
+      <dt>Weight</dt>
+      <dd><%= demographics_info.weight %></dd>
+
+      <dt>Height</dt>
+      <dd><%= demographics_info.height %></dd>
+
+      <dt>Dob</dt>
+      <dd><%= demographics_info.dob %></dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @demographics_info.user.present? %>
+          <%= link_to demographics_info.user, demographics_info.user %>
+        <% end %>
+      </dd>
+
+      <dt>User name</dt>
+      <dd><%= demographics_info.user_name %></dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back demographics_info, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_demographics_info_url(demographics_info), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to demographics_info, method: :delete, data: { confirm: "Do you really want to delete this demographics_info?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(demographics_info.updated_at) %> ago
+  </div>
+</div>

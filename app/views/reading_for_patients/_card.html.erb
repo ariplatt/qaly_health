@@ -1,0 +1,63 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Reading For Patient #<%= reading_for_patient.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Brain oxygen level</dt>
+      <dd><%= reading_for_patient.brain_oxygen_level %></dd>
+
+      <dt>Brain pressure level</dt>
+      <dd><%= reading_for_patient.brain_pressure_level %></dd>
+
+      <dt>Brain temperature level</dt>
+      <dd><%= reading_for_patient.brain_temperature_level %></dd>
+
+      <dt>Time</dt>
+      <dd><%= reading_for_patient.time %></dd>
+
+      <dt>Date</dt>
+      <dd><%= reading_for_patient.date %></dd>
+
+      <dt>Feeling</dt>
+      <dd><%= reading_for_patient.feeling %></dd>
+
+      <dt>Physician</dt>
+      <dd><%= reading_for_patient.physician_id %></dd>
+
+      <dt>Physician name</dt>
+      <dd><%= reading_for_patient.physician_name %></dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @reading_for_patient.user.present? %>
+          <%= link_to reading_for_patient.user, reading_for_patient.user %>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back reading_for_patient, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_reading_for_patient_url(reading_for_patient), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to reading_for_patient, method: :delete, data: { confirm: "Do you really want to delete this reading_for_patient?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(reading_for_patient.updated_at) %> ago
+  </div>
+</div>
