@@ -5,9 +5,7 @@ class DemographicsController < ApplicationController
     @demographics = Demographic.page(params[:page]).per(10)
   end
 
-  def show
-    @physician = Physician.new
-  end
+  def show; end
 
   def new
     @demographic = Demographic.new
@@ -19,12 +17,7 @@ class DemographicsController < ApplicationController
     @demographic = Demographic.new(demographic_params)
 
     if @demographic.save
-      message = "Demographic was successfully created."
-      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referer, notice: message
-      else
-        redirect_to @demographic, notice: message
-      end
+      redirect_to @demographic, notice: "Demographic was successfully created."
     else
       render :new
     end
@@ -40,12 +33,8 @@ class DemographicsController < ApplicationController
 
   def destroy
     @demographic.destroy
-    message = "Demographic was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referer, notice: message
-    else
-      redirect_to demographics_url, notice: message
-    end
+    redirect_to demographics_url,
+                notice: "Demographic was successfully destroyed."
   end
 
   private

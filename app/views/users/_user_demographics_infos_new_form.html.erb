@@ -1,0 +1,42 @@
+<%= form_with(model: @demographics_info, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :disease_id %>
+
+    <%= f.text_field :disease_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :disease_name %>
+
+    <%= f.text_field :disease_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :weight %>
+
+    <%= f.text_field :weight, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :height %>
+
+    <%= f.text_field :height, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dob %>
+
+    <%= f.date_select :dob, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <div class="form-group">
+    <%= f.label :user_name %>
+
+    <%= f.text_field :user_name, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create demographics info", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

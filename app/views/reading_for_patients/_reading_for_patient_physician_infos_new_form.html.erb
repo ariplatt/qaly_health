@@ -1,0 +1,24 @@
+<%= form_with(model: @physician_info, local: true) do |f| %>
+
+  <%= f.hidden_field :physician_id, value: @reading_for_patient.id %>
+
+  <div class="form-group">
+    <%= f.label :physician_name %>
+
+    <%= f.text_field :physician_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hospital_id %>
+
+    <%= f.text_field :hospital_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hospital_name %>
+
+    <%= f.text_field :hospital_name, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create physician info", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

@@ -31,7 +31,6 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
-  gem "dotenv-rails"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
 end
@@ -44,8 +43,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "activeadmin", "2.2.0"
-gem "carrierwave"
-gem "cloudinary"
 gem "coffee-rails"
 gem "devise", "~> 4.7.2"
 gem "graphiti", "~> 1.2"
@@ -70,10 +67,13 @@ group :test do
   gem "database_cleaner"
 end
 gem "activerecord-import"
+gem "bootstrap3-datetimepicker-rails", "~> 4.17.43"
 gem "bootstrap4-kaminari-views"
 gem "devise-jwt", "~> 0.8.1"
 gem "kaminari"
+gem "momentjs-rails", ">= 2.9.0"
 gem "rack-cors"
+gem "ransack"
 gem "rollbar"
 gem "seed_dump", git: "https://github.com/firstdraft/seed_dump.git"
 gem "wdm" if Gem.win_platform?

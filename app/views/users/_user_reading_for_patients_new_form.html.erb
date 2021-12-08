@@ -1,0 +1,53 @@
+<%= form_with(model: @reading_for_patient, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :brain_oxygen_level %>
+
+    <%= f.text_field :brain_oxygen_level, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :brain_pressure_level %>
+
+    <%= f.text_field :brain_pressure_level, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :brain_temperature_level %>
+
+    <%= f.text_field :brain_temperature_level, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time %>
+
+    <%= f.date_select :time, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <%= f.date_select :date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :feeling %>
+    <%= f.text_area :feeling, rows: "3", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :physician_id %>
+
+    <%= f.text_field :physician_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :physician_name %>
+
+    <%= f.text_field :physician_name, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <%= f.submit "Create reading for patient", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

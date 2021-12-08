@@ -1,0 +1,93 @@
+<% was_validated = physician_info.errors.any? %>
+
+<%= form_with(model: physician_info, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% physician_class = "form-control" %>
+    <% physician_was_invalid = physician_info.errors.include?(:physician) %>
+
+    <% if was_validated %>
+      <% if physician_was_invalid %>
+        <% physician_class << " is-invalid" %>
+      <% else %>
+        <% physician_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :physician_id %>
+    <%= f.collection_select :physician_id, ReadingForPatient.all, :id, :to_s, {}, class: "form-control" %>
+    <% if physician_was_invalid %>
+      <% physician_info.errors.full_messages_for(:physician).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% physician_name_class = "form-control" %>
+    <% physician_name_was_invalid = physician_info.errors.include?(:physician_name) %>
+
+    <% if was_validated %>
+      <% if physician_name_was_invalid %>
+        <% physician_name_class << " is-invalid" %>
+      <% else %>
+        <% physician_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :physician_name %>
+    <%= f.text_field :physician_name, class: physician_name_class, placeholder: "Enter physician name" %>
+    <% if physician_name_was_invalid %>
+      <% physician_info.errors.full_messages_for(:physician_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% hospital_class = "form-control" %>
+    <% hospital_was_invalid = physician_info.errors.include?(:hospital) %>
+
+    <% if was_validated %>
+      <% if hospital_was_invalid %>
+        <% hospital_class << " is-invalid" %>
+      <% else %>
+        <% hospital_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hospital_id %>
+    <%= f.number_field :hospital_id, class: hospital_class, placeholder: "Enter hospital" %>
+    <% if hospital_was_invalid %>
+      <% physician_info.errors.full_messages_for(:hospital).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% hospital_name_class = "form-control" %>
+    <% hospital_name_was_invalid = physician_info.errors.include?(:hospital_name) %>
+
+    <% if was_validated %>
+      <% if hospital_name_was_invalid %>
+        <% hospital_name_class << " is-invalid" %>
+      <% else %>
+        <% hospital_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hospital_name %>
+    <%= f.text_field :hospital_name, class: hospital_name_class, placeholder: "Enter hospital name" %>
+    <% if hospital_name_was_invalid %>
+      <% physician_info.errors.full_messages_for(:hospital_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

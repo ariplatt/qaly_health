@@ -1,0 +1,48 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Physician Info #<%= physician_info.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Physician</dt>
+      <dd>
+        <% if @physician_info.physician.present? %>
+          <%= link_to physician_info.physician, physician_info.physician %>
+        <% end %>
+      </dd>
+
+      <dt>Physician name</dt>
+      <dd><%= physician_info.physician_name %></dd>
+
+      <dt>Hospital</dt>
+      <dd><%= physician_info.hospital_id %></dd>
+
+      <dt>Hospital name</dt>
+      <dd><%= physician_info.hospital_name %></dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back physician_info, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_physician_info_url(physician_info), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to physician_info, method: :delete, data: { confirm: "Do you really want to delete this physician_info?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(physician_info.updated_at) %> ago
+  </div>
+</div>

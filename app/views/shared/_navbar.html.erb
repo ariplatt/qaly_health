@@ -15,14 +15,17 @@
             Resources
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/demographics_infos" class="dropdown-item">
+              Demographics Infos
+            </a>
+            <a href="/physician_infos" class="dropdown-item">
+              Physician Infos
+            </a>
+            <a href="/reading_for_patients" class="dropdown-item">
+              Reading For Patients
+            </a>
             <a href="/demographics" class="dropdown-item">
               Demographics
-            </a>
-            <a href="/physicians" class="dropdown-item">
-              Physicians
-            </a>
-            <a href="/readings" class="dropdown-item">
-              Readings
             </a>
             <a href="/users" class="dropdown-item">
               Users
@@ -53,60 +56,6 @@
           <li class="nav-item">
             <a href="/demographics/sign_out" data-method="delete" class="nav-link">
               Demographic sign out
-            </a>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="navbar-nav">
-        <% if current_physician.blank? %>
-          <li class="nav-item">
-            <a href="/physicians/sign_in" class="nav-link">
-              Physician sign in
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/physicians/sign_up" class="nav-link">
-              Physician sign up
-            </a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a href="/physicians/edit" class="nav-link">
-              Physician edit profile
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/physicians/sign_out" data-method="delete" class="nav-link">
-              Physician sign out
-            </a>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="navbar-nav">
-        <% if current_reading.blank? %>
-          <li class="nav-item">
-            <a href="/readings/sign_in" class="nav-link">
-              Reading sign in
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/readings/sign_up" class="nav-link">
-              Reading sign up
-            </a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a href="/readings/edit" class="nav-link">
-              Reading edit profile
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/readings/sign_out" data-method="delete" class="nav-link">
-              Reading sign out
             </a>
           </li>
         <% end %>

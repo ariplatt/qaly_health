@@ -1,0 +1,11 @@
+<div class="row justify-content-center mb-3">
+  <div class="col-md-8">
+    <%= render object: @reading_for_patient, partial: "card", as: :reading_for_patient %>
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-8">
+    <%= render partial: "reading_for_patients/reading_for_patient_physician_infos" %>
+  </div>
+</div>
