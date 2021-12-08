@@ -16,7 +16,7 @@
 
     <%= f.label :brain_oxygen_level %>
     <!-- Input for brain_oxygen_level start -->
-    <%= f.number_field :brain_oxygen_level, class: brain_oxygen_level_class, placeholder: "Enter brain oxygen level" %>
+    <%= f.collection_select :brain_oxygen_level, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for brain_oxygen_level end -->
     <% if brain_oxygen_level_was_invalid %>
       <% reading.errors.full_messages_for(:brain_oxygen_level).each do |message| %>

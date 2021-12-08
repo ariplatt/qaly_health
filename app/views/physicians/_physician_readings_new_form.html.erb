@@ -7,7 +7,7 @@
     <%= f.label :brain_oxygen_level %>
 
     <!-- Input for brain_oxygen_level start -->
-    <%= f.text_field :brain_oxygen_level, class: "form-control" %>
+    <%= f.collection_select :brain_oxygen_level, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for brain_oxygen_level end -->
   </div>
   <!-- Label and input for brain_oxygen_level end -->
