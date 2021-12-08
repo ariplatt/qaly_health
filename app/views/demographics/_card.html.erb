@@ -17,7 +17,11 @@
 
       <dt>Disease</dt>
       <!-- Display disease_id start -->
-      <dd><%= demographic.disease_id %></dd>
+      <dd>
+        <% if @demographic.patient.present? %>
+          <%= link_to demographic.patient, demographic.patient %>
+        <% end %>
+      </dd>
       <!-- Display disease_id end -->
 
       <dt>Date diagnosed</dt>

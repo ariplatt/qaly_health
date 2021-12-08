@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Brain oxygen level</dt>
       <!-- Display brain_oxygen_level start -->
-      <dd><%= reading.brain_oxygen_level %></dd>
+      <dd>
+        <% if @reading.patient.present? %>
+          <%= link_to reading.patient, reading.patient %>
+        <% end %>
+      </dd>
       <!-- Display brain_oxygen_level end -->
 
       <dt>Time</dt>
@@ -49,7 +53,11 @@
 
       <dt>Physician</dt>
       <!-- Display physician_id start -->
-      <dd><%= reading.physician_id %></dd>
+      <dd>
+        <% if @reading.physician.present? %>
+          <%= link_to reading.physician, reading.physician %>
+        <% end %>
+      </dd>
       <!-- Display physician_id end -->
 
     </dl>

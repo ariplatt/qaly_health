@@ -17,7 +17,11 @@
 
       <dt>Patient</dt>
       <!-- Display patient_id start -->
-      <dd><%= physician.patient_id %></dd>
+      <dd>
+        <% if @physician.patients.present? %>
+          <%= link_to physician.patients, physician.patients %>
+        <% end %>
+      </dd>
       <!-- Display patient_id end -->
 
       <dt>Hospital</dt>
