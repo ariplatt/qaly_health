@@ -22,4 +22,6 @@ class DemographicResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :diagnosis,
+             resource: ReadingResource
 end

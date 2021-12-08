@@ -24,4 +24,5 @@ class ReadingResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :demographic
 end
