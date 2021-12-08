@@ -1,5 +1,5 @@
 class DemographicsController < ApplicationController
-  before_action :set_demographic, only: [:show, :edit, :update, :destroy]
+  before_action :set_demographic, only: %i[show edit update destroy]
 
   # GET /demographics
   def index
@@ -17,17 +17,16 @@ class DemographicsController < ApplicationController
   end
 
   # GET /demographics/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /demographics
   def create
     @demographic = Demographic.new(demographic_params)
 
     if @demographic.save
-      message = 'Demographic was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Demographic was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @demographic, notice: message
       end
@@ -39,7 +38,7 @@ class DemographicsController < ApplicationController
   # PATCH/PUT /demographics/1
   def update
     if @demographic.update(demographic_params)
-      redirect_to @demographic, notice: 'Demographic was successfully updated.'
+      redirect_to @demographic, notice: "Demographic was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,23 @@ class DemographicsController < ApplicationController
   def destroy
     @demographic.destroy
     message = "Demographic was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to demographics_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_demographic
-      @demographic = Demographic.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def demographic_params
-      params.require(:demographic).permit(:user_name, :disease_name, :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_demographic
+    @demographic = Demographic.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def demographic_params
+    params.require(:demographic).permit(:user_name, :disease_name,
+                                        :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness)
+  end
 end

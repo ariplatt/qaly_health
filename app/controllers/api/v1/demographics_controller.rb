@@ -13,7 +13,7 @@ class Api::V1::DemographicsController < Api::V1::GraphitiController
     demographic = DemographicResource.build(params)
 
     if demographic.save
-      render jsonapi: demographic, status: 201
+      render jsonapi: demographic, status: :created
     else
       render jsonapi_errors: demographic
     end
@@ -33,7 +33,7 @@ class Api::V1::DemographicsController < Api::V1::GraphitiController
     demographic = DemographicResource.find(params)
 
     if demographic.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: demographic
     end

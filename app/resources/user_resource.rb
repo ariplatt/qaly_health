@@ -16,5 +16,4 @@ class UserResource < ApplicationResource
              foreign_key: :brain_oxygen_level
 
   # Indirect associations
-
 end

@@ -13,7 +13,7 @@ class Api::V1::PhysiciansController < Api::V1::GraphitiController
     physician = PhysicianResource.build(params)
 
     if physician.save
-      render jsonapi: physician, status: 201
+      render jsonapi: physician, status: :created
     else
       render jsonapi_errors: physician
     end
@@ -33,7 +33,7 @@ class Api::V1::PhysiciansController < Api::V1::GraphitiController
     physician = PhysicianResource.find(params)
 
     if physician.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: physician
     end

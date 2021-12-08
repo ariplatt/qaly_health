@@ -6,14 +6,14 @@ class Reading < ApplicationRecord
   belongs_to :physician
 
   belongs_to :patient,
-             :class_name => "User",
-             :foreign_key => "brain_oxygen_level"
+             class_name: "User",
+             foreign_key: "brain_oxygen_level"
 
   # Indirect associations
 
   has_one    :demographic,
-             :through => :patient,
-             :source => :demographics
+             through: :patient,
+             source: :demographics
 
   # Validations
 

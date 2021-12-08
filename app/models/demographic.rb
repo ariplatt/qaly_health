@@ -2,17 +2,17 @@ class Demographic < ApplicationRecord
   # Direct associations
 
   has_many   :physicians,
-             :foreign_key => "patient_id"
+             foreign_key: "patient_id"
 
   belongs_to :patient,
-             :class_name => "User",
-             :foreign_key => "disease_id"
+             class_name: "User",
+             foreign_key: "disease_id"
 
   # Indirect associations
 
   has_one    :diagnosis,
-             :through => :patient,
-             :source => :brain_oxygens
+             through: :patient,
+             source: :brain_oxygens
 
   # Validations
 

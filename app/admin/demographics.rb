@@ -1,6 +1,6 @@
 ActiveAdmin.register Demographic do
-
- permit_params :email, :password, :user_name, :disease_name, :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness
+  permit_params :email, :password, :user_name, :disease_name, :disease_id,
+                :date_diagnosed, :time_diagnosed, :description_of_illness
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Demographic do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

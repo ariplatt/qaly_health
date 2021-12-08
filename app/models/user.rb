@@ -1,15 +1,14 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :demographics,
-             :foreign_key => "disease_id"
+             foreign_key: "disease_id"
 
   has_many   :brain_oxygens,
-             :class_name => "Reading",
-             :foreign_key => "brain_oxygen_level",
-             :dependent => :destroy
+             class_name: "Reading",
+             foreign_key: "brain_oxygen_level",
+             dependent: :destroy
 
   # Indirect associations
 
