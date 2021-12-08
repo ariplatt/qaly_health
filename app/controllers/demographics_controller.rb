@@ -1,25 +1,20 @@
 class DemographicsController < ApplicationController
   before_action :set_demographic, only: %i[show edit update destroy]
 
-  # GET /demographics
   def index
     @demographics = Demographic.page(params[:page]).per(10)
   end
 
-  # GET /demographics/1
   def show
     @physician = Physician.new
   end
 
-  # GET /demographics/new
   def new
     @demographic = Demographic.new
   end
 
-  # GET /demographics/1/edit
   def edit; end
 
-  # POST /demographics
   def create
     @demographic = Demographic.new(demographic_params)
 
@@ -35,7 +30,6 @@ class DemographicsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /demographics/1
   def update
     if @demographic.update(demographic_params)
       redirect_to @demographic, notice: "Demographic was successfully updated."
@@ -44,7 +38,6 @@ class DemographicsController < ApplicationController
     end
   end
 
-  # DELETE /demographics/1
   def destroy
     @demographic.destroy
     message = "Demographic was successfully deleted."
@@ -57,12 +50,10 @@ class DemographicsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_demographic
     @demographic = Demographic.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def demographic_params
     params.require(:demographic).permit(:user_name, :disease_name,
                                         :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness)

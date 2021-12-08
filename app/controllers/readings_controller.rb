@@ -4,23 +4,18 @@ class ReadingsController < ApplicationController
 
   before_action :set_reading, only: %i[show edit update destroy]
 
-  # GET /readings
   def index
     @readings = Reading.page(params[:page]).per(10)
   end
 
-  # GET /readings/1
   def show; end
 
-  # GET /readings/new
   def new
     @reading = Reading.new
   end
 
-  # GET /readings/1/edit
   def edit; end
 
-  # POST /readings
   def create
     @reading = Reading.new(reading_params)
 
@@ -36,7 +31,6 @@ class ReadingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /readings/1
   def update
     if @reading.update(reading_params)
       redirect_to @reading, notice: "Reading was successfully updated."
@@ -45,7 +39,6 @@ class ReadingsController < ApplicationController
     end
   end
 
-  # DELETE /readings/1
   def destroy
     @reading.destroy
     message = "Reading was successfully deleted."
@@ -66,12 +59,10 @@ class ReadingsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_reading
     @reading = Reading.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def reading_params
     params.require(:reading).permit(:brain_oxygen_level, :time, :date,
                                     :feeling, :self_image, :user_name, :brain_pressure_level, :brain_temperature_level, :physician_id)

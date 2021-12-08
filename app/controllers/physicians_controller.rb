@@ -1,25 +1,20 @@
 class PhysiciansController < ApplicationController
   before_action :set_physician, only: %i[show edit update destroy]
 
-  # GET /physicians
   def index
     @physicians = Physician.page(params[:page]).per(10)
   end
 
-  # GET /physicians/1
   def show
     @reading = Reading.new
   end
 
-  # GET /physicians/new
   def new
     @physician = Physician.new
   end
 
-  # GET /physicians/1/edit
   def edit; end
 
-  # POST /physicians
   def create
     @physician = Physician.new(physician_params)
 
@@ -35,7 +30,6 @@ class PhysiciansController < ApplicationController
     end
   end
 
-  # PATCH/PUT /physicians/1
   def update
     if @physician.update(physician_params)
       redirect_to @physician, notice: "Physician was successfully updated."
@@ -44,7 +38,6 @@ class PhysiciansController < ApplicationController
     end
   end
 
-  # DELETE /physicians/1
   def destroy
     @physician.destroy
     message = "Physician was successfully deleted."
@@ -57,12 +50,10 @@ class PhysiciansController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_physician
     @physician = Physician.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def physician_params
     params.require(:physician).permit(:user_name, :patient, :patient_id,
                                       :hospital_id, :hospital_name)
