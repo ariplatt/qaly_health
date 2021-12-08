@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Demographic #<%= demographic.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User name</dt>
+      <!-- Display user_name start -->
+      <dd><%= demographic.user_name %></dd>
+      <!-- Display user_name end -->
+
+      <dt>Disease name</dt>
+      <!-- Display disease_name start -->
+      <dd><%= demographic.disease_name %></dd>
+      <!-- Display disease_name end -->
+
+      <dt>Disease</dt>
+      <!-- Display disease_id start -->
+      <dd><%= demographic.disease_id %></dd>
+      <!-- Display disease_id end -->
+
+      <dt>Date diagnosed</dt>
+      <!-- Display date_diagnosed start -->
+      <dd><%= demographic.date_diagnosed %></dd>
+      <!-- Display date_diagnosed end -->
+
+      <dt>Time diagnosed</dt>
+      <!-- Display time_diagnosed start -->
+      <dd><%= demographic.time_diagnosed %></dd>
+      <!-- Display time_diagnosed end -->
+
+      <dt>Description of illness</dt>
+      <!-- Display description_of_illness start -->
+      <dd><%= demographic.description_of_illness %></dd>
+      <!-- Display description_of_illness end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back demographic, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link demographic start -->
+      <div class="col">
+        <%= link_to edit_demographic_url(demographic), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link demographic end -->
+
+      <!-- Delete link demographic start -->
+      <div class="col">
+        <%= link_to demographic, method: :delete, data: { confirm: "Do you really want to delete this demographic?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link demographic end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(demographic.updated_at) %> ago
+  </div>
+</div>

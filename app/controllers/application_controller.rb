@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:user_name, :disease_name, :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness])
+
+    devise_parameter_sanitizer.permit(:account_update, :keys => [:user_name, :disease_name, :disease_id, :date_diagnosed, :time_diagnosed, :description_of_illness])
+  end
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:user_name, :patient, :patient_id, :hospital_id, :hospital_name])
 
     devise_parameter_sanitizer.permit(:account_update, :keys => [:user_name, :patient, :patient_id, :hospital_id, :hospital_name])
