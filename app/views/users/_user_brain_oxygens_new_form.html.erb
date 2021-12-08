@@ -102,7 +102,7 @@
     <%= f.label :physician_id %>
 
     <!-- Input for physician_id start -->
-    <%= f.text_field :physician_id, class: "form-control" %>
+    <%= f.collection_select :physician_id, Physician.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for physician_id end -->
   </div>
   <!-- Label and input for physician_id end -->

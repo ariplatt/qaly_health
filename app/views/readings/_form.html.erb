@@ -224,7 +224,7 @@
 
     <%= f.label :physician_id %>
     <!-- Input for physician_id start -->
-    <%= f.number_field :physician_id, class: physician_class, placeholder: "Enter physician" %>
+    <%= f.collection_select :physician_id, Physician.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for physician_id end -->
     <% if physician_was_invalid %>
       <% reading.errors.full_messages_for(:physician).each do |message| %>
