@@ -1,6 +1,10 @@
 class Demographic < ApplicationRecord
   # Direct associations
 
+  belongs_to :patient,
+             :class_name => "User",
+             :foreign_key => "disease_id"
+
   # Indirect associations
 
   # Validations
