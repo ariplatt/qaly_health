@@ -12,6 +12,8 @@ class PhysicianResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :readings
+
   # Indirect associations
 
 end
