@@ -68,7 +68,7 @@
 
     <%= f.label :disease_id %>
     <!-- Input for disease_id start -->
-    <%= f.number_field :disease_id, class: disease_class, placeholder: "Enter disease" %>
+    <%= f.collection_select :disease_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for disease_id end -->
     <% if disease_was_invalid %>
       <% demographic.errors.full_messages_for(:disease).each do |message| %>
